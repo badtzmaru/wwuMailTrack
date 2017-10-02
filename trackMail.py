@@ -18,7 +18,7 @@ def fetchStatus(trackingNumber):
 status = fetchStatus(sys.argv[1])
 
 # until the package arrives, wait a few seconds and try again
-while (status == "Arrival Scan" or status == "Departure Scan" or status == "Desk Scan" or status == "Desk Accepted"):
+while (status == "Arrival Scan" or status == "Departure Scan" or status == "Transferred To Hall" or status == "Desk Scan" or status == "Desk Accepted"):
     status = fetchStatus(sys.argv[1])
     sys.stdout.write('\r' + str(status))
     sys.stdout.flush()
