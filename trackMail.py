@@ -1,7 +1,8 @@
 import sys, requests, os, time
 from bs4 import BeautifulSoup
-from tkinter import *
+from Tkinter import *
 
+# scrape the current status of a package by tracking number, returns status string
 def fetchStatus(trackingNumber):
     with requests.session() as browser:
         browser.headers['user-agent'] = 'Mozilla/5.0'
@@ -13,14 +14,17 @@ def fetchStatus(trackingNumber):
             if (quotes[i] == "Status"):
                 return(quotes[i+2])
 
+# fetch the status the first time
 status = fetchStatus(sys.argv[1])
 
+# until the package arrives, wait a few seconds and try again
 while (status == "Arrival Scan" or status == "Departure Scan" or status == "Desk Scan" or status == "Desk Accepted"):
     status = fetchStatus(sys.argv[1])
     sys.stdout.write('\r' + str(status))
     sys.stdout.flush()
-    time.sleep(1)
+    time.sleep(5)
 
+# if the package arrives, create a simple tkinter popup window
 top = Tk()
 text = Text(top)
 text.insert(INSERT, status)
