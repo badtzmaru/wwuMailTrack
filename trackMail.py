@@ -16,20 +16,23 @@ def fetchStatus(trackingNumber):
 
 # fetch the status the first time
 status = fetchStatus(sys.argv[1])
+if(str(status) != "None"):
 
-# until the package arrives, wait a few seconds and try again
-while (status == "Arrival Scan" or status == "Departure Scan" or status == "Transferred To Hall" or status == "Desk Scan" or status == "Desk Accepted"):
-    status = fetchStatus(sys.argv[1])
-    sys.stdout.write('\r' + str(status) + 20*" ")
-    sys.stdout.flush()
-    time.sleep(5)
+    # until the package arrives, wait a few seconds and try again
+    while (status == "Arrival Scan" or status == "Departure Scan" or status == "Transferred To Hall" or status == "Desk Scan" or status == "Desk Accepted"):
+        status = fetchStatus(sys.argv[1])
+        sys.stdout.write('\r' + str(status) + 20*" ")
+        sys.stdout.flush()
+        time.sleep(5)
 
-# if the package arrives, create a simple tkinter popup window
-top = Tk()
-text = Text(top)
-text.insert(INSERT, status)
-text.pack()
-top.minsize(width=200, height=50)
-top.maxsize(width=200, height=50)
-top.title("Package Status")
-top.mainloop()
+    # if the package arrives, create a simple tkinter popup window
+    top = Tk()
+    text = Text(top)
+    text.insert(INSERT, str(status))
+    text.pack()
+    top.minsize(width=200, height=50)
+    top.maxsize(width=200, height=50)
+    top.title("Package Status")
+    top.mainloop()
+else:
+    print("Sorry, that package could not be located!")
