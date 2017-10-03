@@ -56,6 +56,7 @@ if(str(status) != "None"):
     top.minsize(width=200, height=50)
     top.maxsize(width=200, height=50)
     top.title("Package Status")
+    top.focus_force()
     top.mainloop()
 
 # if the package could not be found, throw an error
