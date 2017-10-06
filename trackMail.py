@@ -22,7 +22,7 @@ def fetchStatus(trackingNumber):
                 return(quotes[i+2])
 
 # check for correct number of command line arguments
-if (len(sys.argv) != 2):
+if (len(sys.argv) > 2):
     print("You need to specifiy the tracking number of the package!")
     print("trackMail.py -help for more info")
     sys.exit()
@@ -32,7 +32,7 @@ if (sys.argv[1] == "-help"):
     print("mailTrack.py")
     print("A simple python script for checking the status of packages at WWU")
     print("Usage:")
-    print("trackMail.py <tracking number>")
+    print("trackMail.py <tracking number> [<tracking number>]...")
     sys.exit()
 
 # fetch the status the first time
