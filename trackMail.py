@@ -1,7 +1,7 @@
 # import dependencies
 import sys, requests, os, time
 from bs4 import BeautifulSoup
-from Tkinter import *
+from tkinter import *
 
 # scrape the current status of a package by tracking number, returns status string
 def fetchStatus(trackingNumber):
