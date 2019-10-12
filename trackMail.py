@@ -1,7 +1,12 @@
 # import dependencies
-import sys, requests, os, time
-from bs4 import BeautifulSoup
+import os
+import sys
+import time
 from tkinter import *
+
+import requests
+from bs4 import BeautifulSoup
+
 
 # scrape the current status of a package by tracking number, returns status string
 def fetchStatus(trackingNumber):
@@ -22,7 +27,7 @@ def fetchStatus(trackingNumber):
                 return(quotes[i+2])
 
 # check for correct number of command line arguments
-if (len(sys.argv) > 2):
+if (len(sys.argv) < 2):
     print("You need to specifiy the tracking number of the package!")
     print("trackMail.py -help for more info")
     sys.exit()
