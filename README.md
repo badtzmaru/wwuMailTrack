@@ -12,10 +12,10 @@ python -m pip install -r requirements.txt
 
 ### Usage:
 
-First, find the tracking number of your package by searching for you name on the WWU internal mail tracking website, found [here](https://wwu.sclintra.com/Mail)
+First, find the tracking number of your package by searching for your name on the WWU internal mail tracking website, found [here](https://wwu.sclintra.com/Mail). It may take some time before your package tracking number is added to the system.
 
-Then, invoke mailTrack with the tracking number of your package.
+Then, invoke trackMail with the tracking number of your package.
 
 ```
-mailTrack.py <tracking number>
+trackMail.py <tracking number>
 ```
